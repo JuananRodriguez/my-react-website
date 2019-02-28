@@ -30,6 +30,7 @@ const borderRadius = () =>{
 const Avatar = Styled.div`
   height: ${p=>size(p,SIZES)}px;
   width: ${p=>size(p,SIZES)}px;
+  font-size: ${p=>size(p,SIZES)/2}px;
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;
