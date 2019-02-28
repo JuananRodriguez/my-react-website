@@ -1,15 +1,14 @@
 export default {
-  white: '#fff',
-  default: {
-    light: '#ccc',
-    dark: '#444'
+  default:{
+    light: '#efefef',
+    dark: '#666',
   },
   primary: {
-    light: '#2196F3',
-    dark: '#104977'
+    light: '#41aaff',
+    dark: '#104977',
   },
   danger: {
-    light: '#e91e63',
+    light: '#e97e9f',
     dark: '#670a2a'
   },
   warning: {

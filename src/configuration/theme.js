@@ -1,5 +1,6 @@
+import COLORS from './colors.js'
+
 export default {
   mode: "light",
-  primary: '#ffb10b',
-  secondary: '#444'
+  color: COLORS
 }
