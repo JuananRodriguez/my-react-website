@@ -41,10 +41,17 @@ const Avatar = Styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  img{
+    width: 100%;
+    margin: 0;
+  }
   ${p => p.css}
 `;
 
 Avatar.propTypes = {
+  /** Puedes asignar una imagen como imagen de fondo*/
+  img: PropTypes.string,
+
   /** Con esta propiedad se puede añadir css al elemento, así como pisar propiedades existentes*/
   css: PropTypes.string,
 
