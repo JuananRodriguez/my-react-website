@@ -1,20 +1,35 @@
 ---
 name: Buttons
 ---
-
-import Button  from '../Button'
 import { ThemeProvider } from 'styled-components'
 import Theme from '../../configuration/theme.js'
+import { Playground, PropsTable } from 'docz'
+import Button  from '../Button/index.js'
 
 # Base Button
 
 Hello, I'm still a mdx file, but now I have a button component!
 
 <ThemeProvider theme={Theme}>
-    <div> 
+    <> 
         <Button color={"default"}>Click</Button>
         <Button color={"primary"}>Click</Button>
-        <Button color={"secondary"}>Click</Button>
+        <Button color={"warning"}>Click</Button>
         <Button color={"danger"}>Click</Button>
-    </div>
+    </>
 </ThemeProvider>
+
+
+## PlayGround
+<Playground>  
+    <ThemeProvider theme={Theme}>
+        <> 
+            <Button color={"default"}>Click</Button>
+            <Button color={"primary"}>Click</Button>
+            <Button color={"secondary"}>Click</Button>
+            <Button color={"danger"}>Click</Button>
+        </>
+    </ThemeProvider>
+</Playground>
+
+<PropsTable of={Button} />

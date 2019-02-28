@@ -1,5 +1,7 @@
+import React from 'react'
 import Styled from 'styled-components'
-import _DEFAULT_COLORS from './colors.js'
+import PropTypes from 'prop-types'
+import _DEFAULT_COLORS from '../colors.js'
 
 const reverse = (mode) =>{
   return mode === 'light' ? 'dark' : 'light'
@@ -26,10 +28,20 @@ const Button = Styled.button`
   border-radius: 0.25em;
   margin-right: 0.5em;
   cursor: pointer;
+  ${p => p.css}
 `;
+
+Button.propTypes = {
+  /**Primary, Secondary, Danger, Warning y Success están definidos de manera predeterminada, pero pueden añadirse nuevos
+   tipos desde la propiedad color en el theme, al igual que se pueden anidar modes*/
+  color: PropTypes.string,
+  /** Con esta propiedad se puede añadir css a los botones, así como pisar propiedades existentes*/
+  css: PropTypes.string
+}
 
 Button.defaultProps = {
   color: 'default',
+  css: ``
 };
 
 export default Button;
