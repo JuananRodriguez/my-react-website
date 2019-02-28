@@ -2,6 +2,7 @@ import React from 'react'
 import Styled from 'styled-components'
 import PropTypes from 'prop-types'
 import _DEFAULT_COLORS from '../colors.js'
+import { margin } from './../functions'
 
 const reverse = (mode) =>{
   return mode === 'light' ? 'dark' : 'light'
@@ -26,22 +27,28 @@ const Button = Styled.button`
   background-color: ${buttonBackgroundColor};
   color: ${buttonColor};
   border-radius: 0.25em;
-  margin-right: 0.5em;
+  margin: ${margin};
   cursor: pointer;
   ${p => p.css}
 `;
 
 Button.propTypes = {
+
   /**Primary, Secondary, Danger, Warning y Success están definidos de manera predeterminada, pero pueden añadirse nuevos
    tipos desde la propiedad color en el theme, al igual que se pueden anidar modes*/
   color: PropTypes.string,
+
   /** Con esta propiedad se puede añadir css a los botones, así como pisar propiedades existentes*/
-  css: PropTypes.string
+  css: PropTypes.string,
+
+  /** Esta propiedad actúa como divisor (en decimal como multiplicador) del theme.themeMargin */
+  divisor: PropTypes.number
 }
 
 Button.defaultProps = {
   color: 'default',
-  css: ``
+  css: ``,
+  divisor: 4
 };
 
 export default Button;
