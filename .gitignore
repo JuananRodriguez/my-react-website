@@ -76,3 +76,6 @@ my-react-website.iml
 vcs.xml
 codeStyleConfig.xml
 Project.xml
+
+# docz
+.docz
