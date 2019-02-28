@@ -1,4 +1,3 @@
-
 export const margin = ({theme,...props}) =>{
   let VALUE = theme.themeMargin && theme.themeMargin.value;
   let UNIT = theme.themeMargin && theme.themeMargin.unit;
@@ -17,4 +16,20 @@ export const margin = ({theme,...props}) =>{
   }
 
   return (VALUE && UNIT) ? `${VALUE / DIVISOR}${UNIT}` : '0.5em'
+}
+
+
+export const size = (props, SIZES) =>{
+  const DEFAULT = (
+    props.forwardedComponent &&
+    props.forwardedComponent.defaultProps &&
+    props.forwardedComponent.defaultProps.size
+  ) ? props.forwardedComponent.defaultProps.size : 'xs'
+  const SIZE = props.size || DEFAULT
+
+  /** SIZE VALIDATION: MUST BE ONE OF THOSE */
+  if(SIZES[SIZE] === undefined)
+    console.error("Props.size must be one of ['xs','sm','md','lg','xl']", new Error())
+
+  return SIZES[SIZE] || SIZES[DEFAULT]
 }
