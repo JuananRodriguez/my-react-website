@@ -62,8 +62,17 @@ public
 .DS_Store
 
 # Yarn
+yarn.lock
 yarn-error.log
 .pnp/
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# WebStorm
+misc.xml
+modules.xml
+my-react-website.iml
+vcs.xml
+codeStyleConfig.xml
+Project.xml
