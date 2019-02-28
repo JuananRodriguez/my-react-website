@@ -1,14 +1,47 @@
 {
   "config": {
-    "title": "Gatsby Starter Default",
-    "description": "A simple starter to get up and developing quickly with Gatsby",
+    "title": "my-react-website",
+    "description": "Components Documentation",
     "menu": [],
     "ordering": "descending",
     "version": "0.1.0",
-    "repository": "https://github.com/gatsbyjs/gatsby-starter-default",
+    "repository": "https://github.com/JuananRodriguez/my-react-website",
     "native": false,
     "codeSandbox": true,
-    "themeConfig": {}
+    "themeConfig": {
+      "mode": "light",
+      "logo": {
+        "src": "https://www.juananrodriguez.es/wp-content/uploads/logo-home-juanan-rodriguez.png",
+        "width": 230
+      },
+      "colors": {
+        "primary": "blue"
+      }
+    },
+    "theme": "docz-theme-default"
   },
-  "entries": {}
+  "entries": {
+    "src/elements/Button/buttons.mdx": {
+      "name": "Buttons",
+      "id": "8cc0c5dc9ea58c9804439ca78c360821",
+      "filepath": "src/elements/Button/buttons.mdx",
+      "link": "https://github.com/JuananRodriguez/my-react-website/edit/master/src/elements/Button/buttons.mdx",
+      "slug": "src-elements-button-buttons",
+      "route": "/src-elements-button-buttons",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "base-button",
+          "value": "Base Button"
+        },
+        {
+          "depth": 2,
+          "slug": "playground",
+          "value": "PlayGround"
+        }
+      ]
+    }
+  }
 }
