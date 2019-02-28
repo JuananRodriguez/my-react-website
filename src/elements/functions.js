@@ -18,13 +18,8 @@ export const margin = ({theme,...props}) =>{
   return (VALUE && UNIT) ? `${VALUE / DIVISOR}${UNIT}` : '0.5em'
 }
 
-
 export const size = (props, SIZES) =>{
-  const DEFAULT = (
-    props.forwardedComponent &&
-    props.forwardedComponent.defaultProps &&
-    props.forwardedComponent.defaultProps.size
-  ) ? props.forwardedComponent.defaultProps.size : 'xs'
+  findDefaultProp(props,'size','xs')
   const SIZE = props.size || DEFAULT
 
   /** SIZE VALIDATION: MUST BE ONE OF THOSE */
@@ -32,4 +27,12 @@ export const size = (props, SIZES) =>{
     console.error("Props.size must be one of ['xs','sm','md','lg','xl']", new Error())
 
   return SIZES[SIZE] || SIZES[DEFAULT]
+}
+
+export const findDefaultProp = (props, nameOfThePropToFind, defaultProp) => {
+  return (
+    props.forwardedComponent &&
+    props.forwardedComponent.defaultProps &&
+    props.forwardedComponent.defaultProps[nameOfThePropToFind]
+  ) ? props.forwardedComponent.defaultProps[[nameOfThePropToFind]] : defaultProp
 }

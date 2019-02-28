@@ -15,7 +15,7 @@ const CSS = {
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Elements" keywords={[`gatsby`, `application`, `react`]} />
 
     <ThemeProvider theme={Theme}>
       <>

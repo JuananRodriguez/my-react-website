@@ -3,8 +3,8 @@ import COLORS from './colors.js'
 export default {
   mode: "light",
   themeMargin:{
-    value: 1,
-    unit: 'em'
+    value: 32,
+    unit: 'px'
   },
   color: COLORS
 }

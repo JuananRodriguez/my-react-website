@@ -7,6 +7,9 @@ import SHAPES from './shapes'
 import _DEFAULT_COLORS from '../colors'
 
 const borderRadiusFn = (props) =>{
+
+  console.log(props)
+
   const DEFAULT = findDefaultProp(props, 'shape', 'circle' )
   let shape = props.shape || DEFAULT
 
