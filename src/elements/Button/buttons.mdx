@@ -1,0 +1,20 @@
+---
+name: Buttons
+---
+
+import Button  from '../Button'
+import { ThemeProvider } from 'styled-components'
+import Theme from '../../configuration/theme.js'
+
+# Base Button
+
+Hello, I'm still a mdx file, but now I have a button component!
+
+<ThemeProvider theme={Theme}>
+    <div> 
+        <Button color={"default"}>Click</Button>
+        <Button color={"primary"}>Click</Button>
+        <Button color={"secondary"}>Click</Button>
+        <Button color={"danger"}>Click</Button>
+    </div>
+</ThemeProvider>

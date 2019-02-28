@@ -1,14 +1,32 @@
 {
   "config": {
-    "title": "Gatsby Starter Default",
-    "description": "A simple starter to get up and developing quickly with Gatsby",
+    "title": "My React Website",
+    "description": "my-react-website by JuananRodriguez",
     "menu": [],
     "ordering": "descending",
     "version": "0.1.0",
-    "repository": "https://github.com/gatsbyjs/gatsby-starter-default",
+    "repository": "https://github.com/JuananRodriguez/my-react-website",
     "native": false,
     "codeSandbox": true,
     "themeConfig": {}
   },
-  "entries": {}
+  "entries": {
+    "elements/Button/buttons.mdx": {
+      "name": "Buttons",
+      "id": "4f57a02ab491ed6d3755346695ac6977",
+      "filepath": "elements/Button/buttons.mdx",
+      "link": "https://github.com/JuananRodriguez/my-react-website/edit/master/elements/Button/buttons.mdx",
+      "slug": "elements-button-buttons",
+      "route": "/elements-button-buttons",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "base-button",
+          "value": "Base Button"
+        }
+      ]
+    }
+  }
 }
