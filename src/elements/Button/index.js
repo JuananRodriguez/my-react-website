@@ -39,8 +39,10 @@ Button.propTypes = {
   color: PropTypes.string,
 
   /** Con esta propiedad se puede añadir css a los botones, así como pisar propiedades existentes*/
-  css: PropTypes.string,
-
+  css:PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]) ,
   /** Esta propiedad actúa como divisor (en decimal como multiplicador) del theme.themeMargin */
   divisor: PropTypes.number
 }
