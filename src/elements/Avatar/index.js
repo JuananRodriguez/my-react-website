@@ -3,6 +3,7 @@ import Styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { margin, size } from './../functions'
 import SIZES from './sizes'
+import SHAPES from './shapes'
 import _DEFAULT_COLORS from '../colors'
 
 
@@ -22,9 +23,16 @@ import _DEFAULT_COLORS from '../colors'
 //   return COLOR[reverse(theme.mode)]
 // };
 
-const borderRadius = () =>{
-  console.log()
-  return 100
+const shape = (props) =>{
+  const DEFAULT = (
+    props.forwardedComponent &&
+    props.forwardedComponent.defaultProps &&
+    props.forwardedComponent.defaultProps.shape
+  ) ? props.forwardedComponent.defaultProps.shape : 'circle'
+
+  console.log(SHAPES[props.shape])
+
+  return SHAPES[props.shape] === undefined ? SHAPES[DEFAULT] : SHAPES[props.shape]
 }
 
 const Avatar = Styled.div`
@@ -37,7 +45,7 @@ const Avatar = Styled.div`
   margin: ${margin};
   background-color: ${p=>p.backgroundColor};
   color:${p=>p.color}
-  border-radius: ${borderRadius}%;
+  border-radius: ${shape}%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -51,6 +59,9 @@ const Avatar = Styled.div`
 Avatar.propTypes = {
   /** Puedes asignar una imagen como imagen de fondo*/
   img: PropTypes.string,
+
+  /** Puedes elegir entre 3 formas de avatar [square, rounded, circle]*/
+  shape: PropTypes.oneOf(['square', 'rounded', 'circle']),
 
   /** Con esta propiedad se puede añadir css al elemento, así como pisar propiedades existentes*/
   css: PropTypes.string,
@@ -71,6 +82,7 @@ Avatar.propTypes = {
 Avatar.defaultProps = {
   size: 'sm',
   divisor: 4,
+  shape: 'circle',
   color: _DEFAULT_COLORS.default.light,
   backgroundColor: _DEFAULT_COLORS.default.dark,
   css: ``

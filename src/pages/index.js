@@ -31,8 +31,10 @@ const IndexPage = () => (
           <h2>Avatares</h2>
           <Avatar size={'xs'} >XS</Avatar>
           <Avatar >SM</Avatar>
-          <Avatar size={'md'} >MD</Avatar>
-          <Avatar size={'lg'} >LG</Avatar>
+          <Avatar size={'md'}
+                  shape={'square'} >MD</Avatar>
+          <Avatar size={'lg'}
+                  shape={'rounded'}>LG</Avatar>
           <Avatar size={'xl'} >XL</Avatar>
 
           <h2>Avatares + img tag</h2>
@@ -43,10 +45,18 @@ const IndexPage = () => (
           <Avatar >
             <img src={Image} alt=""/>
           </Avatar>
-          <Avatar size={'md'} >
+          <Avatar
+            size={'md'}
+            shape={'square'}
+            backgroundColor={'#639'}
+          >
             <img src={Image} alt=""/>
           </Avatar>
-          <Avatar size={'lg'} >
+          <Avatar
+            size={'lg'}
+            shape={'rounded'}
+            backgroundColor={'#639'}
+          >
             <img src={Image} alt=""/>
           </Avatar>
           <Avatar size={'xl'} >
