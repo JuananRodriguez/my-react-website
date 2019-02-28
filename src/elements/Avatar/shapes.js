@@ -1,5 +1,5 @@
 export default {
 
-  'square':0, 'rounded':5, 'circle':100
+  'square':1000, 'rounded':10, 'circle':2
 
 }

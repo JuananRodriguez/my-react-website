@@ -1,43 +1,26 @@
 import React from 'react'
 import Styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { margin, size } from './../functions'
+import PropTypes, {checkPropTypes} from 'prop-types'
+import { margin, size, findDefaultProp } from './../functions'
 import SIZES from './sizes'
 import SHAPES from './shapes'
 import _DEFAULT_COLORS from '../colors'
 
+const borderRadiusFn = (props) =>{
+  const DEFAULT = findDefaultProp(props, 'shape', 'circle' )
+  let shape = props.shape || DEFAULT
 
-// const reverse = (mode) =>{
-//   return mode === 'light' ? 'dark' : 'light'
-// }
-//
-// const buttonBackgroundColor  = ({theme, color}) => {
-//   const STYLE = theme.color || _DEFAULT_COLORS
-//   const COLOR = STYLE[color] || STYLE[Button.defaultProps.color] || _DEFAULT_COLORS[Button.defaultProps.color];
-//   return COLOR[theme.mode]
-// }
-//
-// const buttonColor = ({theme, color}) => {
-//   const STYLE = theme.color || _DEFAULT_COLORS
-//   const COLOR = STYLE[color] || STYLE[Button.defaultProps.color] || _DEFAULT_COLORS[Button.defaultProps.color];
-//   return COLOR[reverse(theme.mode)]
-// };
+  if(!['square', 'rounded', 'circle'].includes(props.shape))
+    shape = DEFAULT
 
-const shape = (props) =>{
-  const DEFAULT = (
-    props.forwardedComponent &&
-    props.forwardedComponent.defaultProps &&
-    props.forwardedComponent.defaultProps.shape
-  ) ? props.forwardedComponent.defaultProps.shape : 'circle'
-
-  console.log(SHAPES[props.shape])
-
-  return SHAPES[props.shape] === undefined ? SHAPES[DEFAULT] : SHAPES[props.shape]
+  return size(props,SIZES)/SHAPES[shape]
 }
 
 const Avatar = Styled.div`
   height: ${p=>size(p,SIZES)}px;
+  min-height: ${p=>size(p,SIZES)}px;
   width: ${p=>size(p,SIZES)}px;
+  min-width: ${p=>size(p,SIZES)}px;
   font-size: ${p=>size(p,SIZES)/2}px;
   white-space: nowrap; 
   overflow: hidden;
@@ -45,7 +28,7 @@ const Avatar = Styled.div`
   margin: ${margin};
   background-color: ${p=>p.backgroundColor};
   color:${p=>p.color}
-  border-radius: ${shape}%;
+  border-radius: ${borderRadiusFn}px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -87,5 +70,7 @@ Avatar.defaultProps = {
   backgroundColor: _DEFAULT_COLORS.default.dark,
   css: ``
 };
+
+export {SIZES}
 
 export default Avatar;
