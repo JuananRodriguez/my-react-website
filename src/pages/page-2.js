@@ -63,7 +63,9 @@ class SecondPage extends React.Component {
           </section>
         </ThemeProvider>
 
-        <Link to="/">Go back to the homepage</Link>
+        <Link to="/">Elements</Link>
+        <Link to="/menu">Ver Componente Menu</Link>
+
       </Layout>
 
     )
