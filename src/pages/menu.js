@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import Layout from "../components/layout"
 import Menu from "../components/Menu"
 import Button from "../elements/Button"
+import Drawer from "../components/DrawerMenu"
 import SEO from "../components/seo"
 import Theme from '../configuration/theme.js'
 import ListItem from '../elements/ListItem'
@@ -15,18 +16,19 @@ const IndexPage = () => (
     <ThemeProvider theme={Theme}>
       <>
         <section>
-          <h2>List Item</h2>
-          <Menu openComponent={({onClick})=><Button onClick={onClick}>Abrir menu</Button>}>
+          <h2>Menu</h2>
+
+          <Drawer openComponent={({onClick})=><Button onClick={onClick}>Abrir Drawer Menu</Button>}>
             <ListItem component={Link} active to="/page-2/" >
               Item1
             </ListItem>
-            <ListItem component={Link}  to="/page-2/" >
+            <ListItem component={'span'}  to="/page-2/" >
               Item2
             </ListItem>
             <ListItem component={Link}  to="/page-2/" >
               Item3
             </ListItem>
-          </Menu>
+          </Drawer>
 
           <Menu
             maxHeight={'150px'}

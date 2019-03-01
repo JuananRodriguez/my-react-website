@@ -10,14 +10,12 @@ const Drawer = Styled('div')`
   z-index: 5000;
   background: white;
   transition: transform 176ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  transform: translateX(
-  ${p=>!p.open ? p.fullWidth ? '-100%' : -(p.width+2) + 'px' : '0px'}
-  )
+  transform: translateX( ${p=>!p.open ? p.fullWidth ? '-100%' : -(p.width+2) + 'px' : '0px'} )
 `;
 
 Drawer.defaultProps = {
   width: 280,
-  fullWidth: true,
+  fullWidth: false,
   open: false,
 }
 
