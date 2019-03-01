@@ -1,7 +1,7 @@
 export default {
   white: '#fff',
   default: {
-    light: '#ccc',
+    light: '#e9e9e9',
     dark: '#444'
   },
   primary: {

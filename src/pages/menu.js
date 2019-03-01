@@ -2,22 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 import { ThemeProvider } from 'styled-components'
 import Layout from "../components/layout"
+import Menu from "../components/Menu"
 import SEO from "../components/seo"
-import Button  from '../elements/Button'
-import Avatar  from '../elements/Avatar'
 import Theme from '../configuration/theme.js'
-import Image from './../images/gatsby-icon.png'
 import ListItem from '../elements/ListItem'
-import Styled from 'styled-components'
-
-const CSS = {
-  backgroundColor: 'white'
-}
-
-const FullWidth = Styled('div')`
-  width: 100%;
-`
-
 
 const IndexPage = () => (
   <Layout>
@@ -27,8 +15,8 @@ const IndexPage = () => (
       <>
         <section>
           <h2>List Item</h2>
-          <FullWidth>
-            <ListItem component={Link}  to="/page-2/" >
+          <Menu openComponent={({onClick})=><button onClick={onClick}>Abrir menu</button>}>
+            <ListItem component={Link} active to="/page-2/" >
               Item1
             </ListItem>
             <ListItem component={Link}  to="/page-2/" >
@@ -37,7 +25,7 @@ const IndexPage = () => (
             <ListItem component={Link}  to="/page-2/" >
               Item3
             </ListItem>
-          </FullWidth>
+          </Menu>
         </section>
 
       </>

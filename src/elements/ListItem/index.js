@@ -8,7 +8,7 @@ import { margin } from "../../helpers/functions"
 const ListItemHoc = (props) => {
   return Styled(props.component)`
     width: 100%;
-    background-color: ${p => p.backgroundColor}
+    background-color: ${p => p.active ? p.backgroundColor : lighten(0.1,p.backgroundColor)}
     color: ${p => p.color}
     padding: ${margin};
     position: relative;
@@ -16,7 +16,7 @@ const ListItemHoc = (props) => {
     display: block;
     
     &:hover{
-    background-color: ${p => lighten(0.1, p.backgroundColor)}
+    background-color: ${p => p.backgroundColor}
     color: ${p => p.color}
     }
     
