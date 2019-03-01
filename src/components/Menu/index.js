@@ -4,25 +4,27 @@ import { margin } from "../../helpers/functions"
 
 const MenuS = Styled('div')`
   position:absolute;
+  z-index: 1000;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
   box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);
-  // top: 0;
+  top: 0;
   padding: ${margin} 0;
   background: #fff;
   border-radius: 4px;
   transform: scale(${p=>p.open ? '1': '0' });
   opacity: ${p=>p.open ? '1': '0' };
-  transform-origin: top left;
+  transform-origin: ${p=>p.openFrom};
   transition: opacity 264ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 176ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-
-  
-  
 `;
 
 const MenuA = Styled('div')`
   position:relative;
-  width: 300px;
+  width: 100%;
+  ${MenuS}{
+    max-width: ${p=>p.maxWidth};
+    height: ${p=>p.maxHeight};
+  }
 `;
 
 export const Menu = (OpenComponent) =>{
@@ -51,11 +53,11 @@ export const Menu = (OpenComponent) =>{
 
     render(){
       const {open} = this.state;
-      const {children} = this.props;
+      const {children, maxWidth, maxHeight, openFrom} = this.props;
       return (
-        <MenuA>
+        <MenuA maxWidth={maxWidth} maxHeight={maxHeight}>
           <OpenComponent onClick={this.handleOpen}/>
-          <MenuS divisor={2} open={open}>{children}</MenuS>
+          <MenuS divisor={2} open={open} openFrom={openFrom}>{children}</MenuS>
         </MenuA>
       )
     }
@@ -63,6 +65,9 @@ export const Menu = (OpenComponent) =>{
 
   innerMenu.defaultProps = {
     open: false,
+    openFrom: 'top left',
+    maxWidth: "300px",
+    maxHeight: "max-content"
   }
 
   return innerMenu
