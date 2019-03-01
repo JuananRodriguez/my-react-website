@@ -8,48 +8,66 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Theme from "../configuration/theme"
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="COMPONENTES" />
-    <h1>COMPONENTES</h1>
+class SecondPage extends React.Component {
+  state={
+    invisible: false
+  }
 
-    <ThemeProvider theme={Theme}>
-      <section>
-        <Badge content={'algo'}>
-          <Button>
-            BUTTON
-          </Button>
-        </Badge>
+  render() {
+    return (
+      <Layout>
+        <SEO title="COMPONENTES"/>
+        <h1>COMPONENTES</h1>
+        <ThemeProvider theme={Theme}>
+          <section>
 
-        <Badge content={'algo'} variant={'rounded'}>
-          <Button>
-            BUTTON
-          </Button>
-        </Badge>
+            <Button onClick={()=>this.setState({ invisible:!this.state.invisible })}>Ocultar Badgets</Button>
 
-        <Badge content={'algo'} variant={'circle'}>
-          <Button>
-            BUTTON
-          </Button>
-        </Badge>
 
-        <Badge content={'algo'} variant={'dot'} color={'danger'}>
-          <Button>
-            BUTTON
-          </Button>
-        </Badge>
+            <Badge content={'algo'} variant={'square'} visible={!this.state.invisible}>
+              <Button>
+                BUTTON
+              </Button>
+            </Badge>
 
-        <Badge content={'algo'} variant={'dot'}>
-          <Avatar size={'sm'} shape={'square'}>
-            sm
-          </Avatar>
-        </Badge>
+            <Badge content={'algo'} variant={'rounded'} visible={!this.state.invisible}>
+              <Button>
+                BUTTON
+              </Button>
+            </Badge>
 
-      </section>
-    </ThemeProvider>
+            <Badge content={'algo'} variant={'circle'} visible={!this.state.invisible}>
+              <Button>
+                BUTTON
+              </Button>
+            </Badge>
 
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+            <Badge content={'algo'} variant={'dot'} backgroundColor={'green'} visible={!this.state.invisible}>
+              <Button>
+                BUTTON
+              </Button>
+            </Badge>
+
+            <Badge content={'algo'} variant={'dot'} visible={!this.state.invisible}>
+              <Avatar size={'sm'} shape={'square'}>
+                sm
+              </Avatar>
+            </Badge>
+
+            <Badge content={'+99'} backgroundColor={'#345564'} visible={!this.state.invisible}>
+              <Avatar size={'md'}>
+                md
+              </Avatar>
+            </Badge>
+
+          </section>
+        </ThemeProvider>
+
+        <Link to="/">Go back to the homepage</Link>
+      </Layout>
+
+    )
+  }
+}
 
 export default SecondPage

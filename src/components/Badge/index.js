@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React from 'react'
 import Styled from 'styled-components'
 import Avatar from './../../elements/Avatar'
 import PropTypes from 'prop-types'
@@ -9,8 +9,9 @@ const Dot = Styled('div')`
   padding: 0;
   width: 8px;
   position: absolute;
-  transform: translateX(4px) translateY(-4px);
-  background-color: red;
+  transition: transform 200ms;
+  transform: translateX(4px) translateY(-4px) scale(${p=>p.visible ? 1 : 0});
+  background-color: ${p=>p.backgroundColor};
   border-radius: 100%;
   top: 0;
   right: 0;
@@ -23,7 +24,8 @@ const BadgeA = Styled(Avatar)`
   width: max-content;
   padding: 0 4px
   position: absolute;
-  transform: translateX(10px) translateY(-10px);
+  transition: transform 200ms;
+  transform: translateX(10px) translateY(-10px) scale(${p=>p.visible ? 1 : 0});
   top: 0;
   right: 0;
 }
@@ -33,15 +35,17 @@ const BadgeS = Styled('div')`
   width: max-content;
 `
 
-class Badge extends Component{
+class Badge extends React.PureComponent{
   render(){
 
-    const {color, children, variant, content} = this.props
+    const {color, children, variant, content, backgroundColor, visible} = this.props
     const Variant = variant === 'dot' ? Dot : BadgeA;
 
     return(
       <BadgeS>
         <Variant
+          visible={visible}
+          backgroundColor={backgroundColor}
           color={color}
           shape={variant}
           size={'xs'}
@@ -54,6 +58,12 @@ class Badge extends Component{
 }
 
 Badge.propTypes = {
+  /** muestra u oculta el badge */
+  visible: PropTypes.bool,
+
+  /** define la forma del badge */
+  variant: PropTypes.oneOf(['dot','square','circle', 'rounded']),
+
   /** Contenido del badge (del flotante) */
   content: PropTypes.any,
 
@@ -68,10 +78,11 @@ Badge.propTypes = {
 }
 
 Badge.defaultProps = {
-  variant:"square",
+  visible: true,
+  variant:"circle",
   content: null,
-  color: _DEFAULT_COLORS.default.light,
-  backgroundColor: _DEFAULT_COLORS.default.dark,
+  color: _DEFAULT_COLORS.white,
+  backgroundColor: _DEFAULT_COLORS.danger.dark,
 
 }
 
