@@ -1,15 +1,12 @@
 import React from 'react'
 import Styled from 'styled-components'
-import PropTypes, {checkPropTypes} from 'prop-types'
-import { margin, size, findDefaultProp } from './../functions'
+import PropTypes from 'prop-types'
+import { margin, size, findDefaultProp } from '../../helpers/functions'
 import SIZES from './sizes'
 import SHAPES from './shapes'
-import _DEFAULT_COLORS from '../colors'
+import _DEFAULT_COLORS from '../../helpers/colors'
 
 const borderRadiusFn = (props) =>{
-
-  console.log(props)
-
   const DEFAULT = findDefaultProp(props, 'shape', 'circle' )
   let shape = props.shape || DEFAULT
 
@@ -18,6 +15,7 @@ const borderRadiusFn = (props) =>{
 
   return size(props,SIZES)/SHAPES[shape]
 }
+
 
 const Avatar = Styled.div`
   height: ${p=>size(p,SIZES)}px;

@@ -33,15 +33,15 @@ const SecondPage = () => (
           </Button>
         </Badge>
 
-        <Badge content={'algo'} variant={'dot'}>
+        <Badge content={'algo'} variant={'dot'} color={'danger'}>
           <Button>
             BUTTON
           </Button>
         </Badge>
 
         <Badge content={'algo'} variant={'dot'}>
-          <Avatar size={'xl'} shape={'square'}>
-            XL
+          <Avatar size={'sm'} shape={'square'}>
+            sm
           </Avatar>
         </Badge>
 
